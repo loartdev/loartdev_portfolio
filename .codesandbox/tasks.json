@@ -1,0 +1,58 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "yarn install"
+    }
+  ],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "develop": {
+      "name": "develop",
+      "command": "yarn develop",
+      "runAtStart": false
+    },
+    "start": {
+      "name": "start",
+      "command": "yarn start",
+      "runAtStart": true
+    },
+    "build": {
+      "name": "build",
+      "command": "yarn build",
+      "runAtStart": false
+    },
+    "serve": {
+      "name": "serve",
+      "command": "yarn serve",
+      "runAtStart": false
+    },
+    "clean": {
+      "name": "clean",
+      "command": "yarn clean",
+      "runAtStart": false
+    },
+    "npm run develop": {
+      "name": "npm run develop",
+      "command": "npm run develop"
+    },
+    "curl --compressed -o- -L https://yarnpkg.com/install.sh | bash": {
+      "name": "curl --compressed -o- -L https://yarnpkg.com/install.sh | bash",
+      "command": "curl --compressed -o- -L https://yarnpkg.com/install.sh | bash"
+    },
+    "nvm install ": {
+      "name": "nvm install ",
+      "command": "nvm install "
+    },
+    "nvm install node": {
+      "name": "nvm install node",
+      "command": "nvm install node"
+    },
+    "yarn upgrade --latest": {
+      "name": "yarn upgrade --latest",
+      "command": "yarn upgrade --latest"
+    }
+  }
+}
