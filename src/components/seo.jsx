@@ -1,39 +1,31 @@
-import { graphql } from "gatsby";
-import React from "react";
-import { useStaticQuery } from "gatsby";
+import React from "react"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
-function SEO({ title, bg, children }) {
+export const SEO = ({ title, description, pathname, children }) => {
+  const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername, imageSite } = useSiteMetadata()
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    image: `${siteUrl}/${image}`,
+    url: `${siteUrl}${pathname || ``}`,
+    twitterUsername,
+    imageSite,
+  }
 
   return (
     <>
-      <title>{title} | LoArt & Dev</title>
+      <title>{seo.title}</title>
+      <meta name="description" content={seo.description} />
+      <meta name="image" content={seo.image} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:url" content={seo.url} />
+      <meta name="twitter:description" content={seo.description} />
+      <meta name="twitter:image" content={seo.imageSite} />
+      <meta name="twitter:creator" content={seo.twitterUsername} />
+      <link rel="icon" href={seo.image} />
       {children}
-    </>
-  )
-}
-
-export default SEO
-
-export function Head() {
-  const logo = useStaticQuery(graphql`
-    {
-      file(relativePath: {eq: "logo.svg"}) {
-        publicURL
-      }
-    }   
-  `)
-  return (
-    <>
-      <meta name="title" content="LoArt & Dev - The Ultimate Showcase of Simon Lopez's 3D Art, Game Design, and Web Development Mastery" />
-      <meta name="description" content="LoArt & Dev: Simon Lopez's exceptional showcase of 3D art, game design, web development, and cat obsession. A must-see for anyone who appreciates feline-inspired creativity!" />
-      <meta name="keywords" content="developer, web design, game design, game development, games, websites, 3D, 2D, Art, 3D Art, animation, web app, web development, cats, feline, obsession, creative, mastery, showcase" />
-      <meta name="robots" content="index, follow" />
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="language" content="English" />
-      <meta name="revisit-after" content="10 days" />
-      <meta name="author" content="Simon Lopez Jaramillo" />
-      <link id="" rel="icon" href={logo.file.publicURL} />
-      <SEO />
     </>
   )
 }

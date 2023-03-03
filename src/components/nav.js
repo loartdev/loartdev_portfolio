@@ -11,7 +11,7 @@ function Nav() {
   return (
     <>
       <nav className="fixed  bottom-0 md:bottom-auto md:top-0 w-full px-4 md:px-8 py-4 z-50">
-        <div className=' w-full  shadow-lg shadow-theme-accent/10 flex rounded-2xl p-2 bg-theme-navbg text-theme-text '>
+        <div className=' w-full  shadow-lg shadow-theme-navbg/10 flex rounded-2xl p-2 bg-theme-navbg text-theme-text '>
           <div className="flex-1 md:flex-none z-50">
             <img src={Logo} className='w-8 h-8 m-2' alt="Well aparently something is not working but the page must be fine, so dont worry, this is here just to maje people get mad when this icon don't load....  why are you reading this?" />
           </div>
@@ -29,7 +29,7 @@ function Nav() {
       </nav>
       <section>
         <div className={`fixed top-0 left-0  w-screen h-screen z-[55] ${isOpen ? 'block' : 'hidden'}`} onClick={() => setIsOpen(false)}></div>
-        <div className={`fixed grid grid-cols-2 p-2 md:p-0 top-0 left-0 w-screen md:h-auto md:left-auto h-screen md:rounded-2xl md:right-8 md:top-24 md:ml-8 md:w-1/2 bg-theme-menubg text-theme-text z-[60] shadow-lg shadow-theme-accent/10 transition-transform duration-75 ${isOpen ? 'block' : 'hidden'}`}>
+        <div className={`fixed grid grid-cols-2 p-2 md:p-0 top-0 left-0 w-screen md:h-auto md:left-auto h-screen md:rounded-2xl md:right-8 md:top-24 md:ml-8 md:w-1/2 bg-theme-menubg text-theme-text z-[60] shadow-lg shadow-theme-navbg/2 0 transition-transform duration-75 ${isOpen ? 'block' : 'hidden'}`}>
           <div className="text-xl h-10 col-span-2 flex p-2 w-full md:hidden">
             <div className='flex-1'>
               <svg id="svg2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className='h-6 w-6' viewBox="0, 0, 400,400">

@@ -6,6 +6,10 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: `LoArt & Dev`,
+    description: "LoArt & Dev: Simon Lopez's exceptional showcase of 3D art, game design, web development, and cat obsession.A must- see for anyone who appreciates feline- inspired creativity!",
+    twitterUsername: '@LoArtDev',
+    image: `logo.svg`,
+    imageSite: `siteScreen.png`,
     siteUrl: process.env.WEB_URL,
   },
   plugins: [

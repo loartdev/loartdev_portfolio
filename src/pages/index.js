@@ -2,6 +2,7 @@ import * as React from 'react';
 import Layout from '../components/layout';
 import { graphql, useStaticQuery } from 'gatsby';
 import Hero from '../components/hero';
+import { SEO } from '../components/seo';
 import MasonryLayout from '../components/masonry/masonry-layout';
 
 const IndexPage = () => {
@@ -60,3 +61,7 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const Head = () => (
+  <SEO />
+)
