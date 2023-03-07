@@ -8,7 +8,7 @@ export const SEO = ({ title, description, pathname, children }) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}/${image}`,
-    url: `${siteUrl}${pathname || ``}`,
+    url: `${siteUrl}/${pathname || ``}`,
     twitterUsername,
     imageSite,
   }
