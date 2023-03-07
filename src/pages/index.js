@@ -60,7 +60,7 @@ const IndexPage = () => {
     <Layout title="Home">
       <Hero />
 
-      <div className="w-full relative p-10 md:max-h-[500px] overflow-hidden b-shadow">
+      <div className="w-full relative p-10 max-h-[500px] overflow-hidden b-shadow">
         <div className='-rotate-[25deg] -translate-y-80'>
           <MasonryLayout images={images} />
         </div>
