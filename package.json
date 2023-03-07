@@ -16,6 +16,7 @@
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "@trendyol-js/react-carousel": "^3.0.2",
+    "@vercel/analytics": "^0.1.11",
     "autoprefixer": "^10.4.13",
     "chart.js": "^4.2.0",
     "gatsby": "^5.5.0",
