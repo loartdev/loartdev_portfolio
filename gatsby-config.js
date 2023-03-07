@@ -64,7 +64,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `LoArt & Dev`,
-        icon: `src/images/icon.svg`,
+        icon: `src/images/logo.svg`,
         icons: [
           {
             src: `/favicons/android-chrome-192x192.png`,
