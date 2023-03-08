@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Layout from '../components/layout';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import Hero from '../components/hero';
 import { SEO } from '../components/seo';
 import MasonryLayout from '../components/masonry/masonry-layout';
 import ArtCarousel from '../components/artworkCarousel';
+import GitHubCalendar from 'react-github-calendar';
 
 const IndexPage = () => {
   const imgs = useStaticQuery(graphql`
@@ -13,7 +14,7 @@ const IndexPage = () => {
         edges {
           node {
             images {
-              gatsbyImageData(formats: AUTO, placeholder: DOMINANT_COLOR)
+              gatsbyImageData(formats: AUTO, placeholder: DOMINANT_COLOR, width:700)
             }
             slug
             title
@@ -65,7 +66,30 @@ const IndexPage = () => {
           <MasonryLayout dontbreak images={images} />
         </div>
         <div className='absolute w-full h-full top-0 left-0 bg-gradient-to-b from-theme-bg via-transparent to-theme-bg' />
-        <div></div>
+        <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 grid grid-cols-1'>
+          <center>
+            <h2 className='text-4xl text-center mb-8'>ARTWORKS</h2>
+
+            <Link to="/gallery"><a
+              className="bg-transparent hover:bg-theme-accent text-theme-accent hover:text-zinc-800 rounded shadow hover:shadow-lg py-2 px-4 border border-theme-accent hover:border-transparent">
+              Explore Now</a></Link>
+          </center>
+        </div>
+      </div>
+      <h2 className='w-full text-center text-3xl mt-10'>GITHUB</h2>
+      <div className='flex justify-center w-full p-8'>
+        <GitHubCalendar
+          username='simonlopezjara'
+          blockRadius="10"
+          hideTotalCount={true}
+          theme={{
+            level0: '#1a1a1a',
+            level1: '#301a47',
+            level2: '#5f348a',
+            level3: '#8b4dc9',
+            level4: '#b061ff'
+          }}
+        />
       </div>
     </Layout>
   )
