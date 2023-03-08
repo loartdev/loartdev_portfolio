@@ -4,7 +4,7 @@ import Masonry from "react-masonry-css"
 import MasonryBox from './MasonryBox/MasonryBox';
 
 // MasonryLayout Component
-const MasonryLayout = ({ images }) => {
+const MasonryLayout = ({ images, dontbreak }) => {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
@@ -14,7 +14,7 @@ const MasonryLayout = ({ images }) => {
 
   return (
     <Masonry
-      breakpointCols={breakpointColumnsObj}
+      breakpointCols={dontbreak ? { default: 4 } : breakpointColumnsObj}
       className="my-masonry-grid"
       columnClassName="my-masonry-grid_column"
     >

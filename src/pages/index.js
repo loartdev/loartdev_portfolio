@@ -61,8 +61,8 @@ const IndexPage = () => {
       <Hero />
 
       <div className="w-full relative p-10 max-h-[500px] overflow-hidden b-shadow">
-        <div className='-rotate-[25deg] -translate-y-80'>
-          <MasonryLayout images={images} />
+        <div className=' w-[400vw] -rotate-[25deg] -translate-y-[30%] md:-translate-y-10 lg:-translate-y-40 -translate-x-[35%] md:translate-x-0 scale-[.6] md:scale-[1.4] lg:scale-[1.2] md:w-full'>
+          <MasonryLayout dontbreak images={images} />
         </div>
         <div className='absolute w-full h-full top-0 left-0 bg-gradient-to-b from-theme-bg via-transparent to-theme-bg' />
         <div></div>

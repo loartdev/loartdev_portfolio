@@ -6,22 +6,28 @@ import Fade from 'react-reveal/Fade';
 const Hero = () => {
   const images = useStaticQuery(graphql`
     {
-      imgR: contentfulArtwork(title: {eq: "Singularity"}) {
-        images {
-          publicUrl
-        }
-      }
-      imgC: contentfulArtwork(title: {eq: "Personal Deamon"}) {
-        images {
-          publicUrl
-        }
-      }
-      imgL: contentfulArtwork(title: {eq: "Sunset on the beach"}) {
-        images {
-          publicUrl
-        }
+  imgR: contentfulArtwork(title: {eq: "Singularity"}) {
+    images {
+      resize(width: 650, format: AUTO) {
+        src
       }
     }
+  }
+  imgC: contentfulArtwork(title: {eq: "Personal Deamon"}) {
+    images {
+      resize(width: 650, format: AUTO) {
+        src
+      }
+    }
+  }
+  imgL: contentfulArtwork(title: {eq: "Sunset on the beach"}) {
+    images {
+      resize(width: 650, format: AUTO) {
+        src
+      }
+    }
+  }
+}
   `)
 
 
@@ -53,16 +59,16 @@ const Hero = () => {
             <div class="h-2/3 flex flex-nowrap content-center slide-r">
 
               <svg width={500} height={500} class=" hidden xl:inline-block brightness-[.8] h-full my-auto -mr-20 -rotate-[25deg]" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 300 300">
-                <image width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xlinkHref={images.imgL.images[0].publicUrl} clip-path="url(#user-space)" />
+                <image width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xlinkHref={images.imgL.images[0].resize.src} clip-path="url(#user-space)" />
               </svg>
 
               <svg width={600} height={600} class="inline-block brightness-[.8] h-full max-w-[66vw] sm:max-w-[30vw] -rotate-[25deg]" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 300 300">
 
-                <image width="100%" height="100%" preserveAspectRatio="xMidYMin slice" xlinkHref={images.imgC.images[0].publicUrl} clip-path="url(#user-space)" />
+                <image width="100%" height="100%" preserveAspectRatio="xMidYMin slice" xlinkHref={images.imgC.images[0].resize.src} clip-path="url(#user-space)" />
               </svg>
               <svg width={500} height={500} class=" hidden lg:inline-block brightness-[.8] h-full my-auto -ml-20 -rotate-[25deg]" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 300 300">
 
-                <image width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xlinkHref={images.imgR.images[0].publicUrl} clip-path="url(#user-space)" />
+                <image width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xlinkHref={images.imgR.images[0].resize.src} clip-path="url(#user-space)" />
               </svg>
 
             </div>
