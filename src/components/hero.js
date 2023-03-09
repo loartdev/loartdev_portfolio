@@ -1,7 +1,5 @@
 import React from "react";
-import pill from "../images/Pill.svg";
 import { graphql, useStaticQuery } from "gatsby";
-import Fade from 'react-reveal/Fade';
 
 const Hero = () => {
   const images = useStaticQuery(graphql`
