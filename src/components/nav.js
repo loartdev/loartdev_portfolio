@@ -10,7 +10,7 @@ function Nav() {
 
   return (
     <>
-      <nav className="fixed  bottom-0 md:bottom-auto md:top-0 w-full px-4 md:px-8 py-4 z-50">
+      <nav className="fixed top-0 w-full px-4 md:px-8 py-4 z-50">
         <div className=' w-full  shadow-lg shadow-theme-navbg/10 flex rounded-2xl p-2 bg-theme-navbg text-theme-text '>
           <div className="flex-1 md:flex-none z-50">
             <img src={Logo} className='w-8 h-8 m-2' alt="Well aparently something is not working but the page must be fine, so dont worry, this is here just to maje people get mad when this icon don't load....  why are you reading this?" />

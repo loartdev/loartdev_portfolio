@@ -3,9 +3,9 @@ import React from "react";
 
 const Footer = () => (
   <section className="p-12 pb-6 bg-theme-navbg grid grid-cols-1">
-    <div className="col-span-3 flex">
+    <div className="col-span-3 flex flex-col sm:flex-auto">
       <h2 className="text-2xl flex-1">LoArt & Dev</h2>
-      <div className="text-theme-navbg flex">
+      <div className="flex-1 text-theme-navbg flex">
         <a target="_blank" href="https://www.instagram.com/loart_dev/">
           <svg className="w-6 h-6 mr-2 p-1 rounded-full bg-theme-text" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 56.7 56.7" fill="#050505" enable-background="new 0 0 56.7 56.7" xmlSpace="preserve">
