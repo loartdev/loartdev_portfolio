@@ -1,7 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
-import MasonryLayout from "../components/masonry/masonry-layout"
+import MasonryLayout, { ArtMasonryLayout } from "../components/masonry/masonry-layout"
+import Slideshow from "../components/slideshow";
 
 const GalleryPage = () => {
   const artworks = useStaticQuery(graphql`
@@ -29,10 +30,11 @@ const GalleryPage = () => {
   artworks.allContentfulArtwork.edges.forEach(function (img) {
     const imm = {
       id: img.node.slug,
+      title: img.node.title,
       src: img.node.images[0].gatsbyImageData,
       user: {
         src: img.node.author.foto.gatsbyImageData,
-        name: "Simón López",
+        name: "Simon Lopez",
         job: ""
       }
     }
@@ -40,7 +42,12 @@ const GalleryPage = () => {
   })
   return (
     <Layout>
-      <MasonryLayout images={images} />
+      <div className="m-">
+        <Slideshow images={images} />
+      </div>
+      <div className="m-8">
+        <ArtMasonryLayout images={images} />
+      </div>
     </Layout>
   )
 }

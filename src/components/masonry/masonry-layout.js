@@ -35,7 +35,7 @@ const MasonryLayout = ({ images, dontbreak }) => {
 
 export default MasonryLayout
 
-const ArtMasonryLayout = ({ images, dontbreak }) => {
+export const ArtMasonryLayout = ({ images, dontbreak }) => {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
