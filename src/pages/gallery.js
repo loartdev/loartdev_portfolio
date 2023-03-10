@@ -7,7 +7,7 @@ import Slideshow from "../components/slideshow";
 const GalleryPage = () => {
   const artworks = useStaticQuery(graphql`
   {
-    allContentfulArtwork(filter: {node_locale: {eq: "es-CO"}}, limit: 14) {
+    allContentfulArtwork(filter: {node_locale: {eq: "en-US"}}, limit: 14) {
         edges {
           node {
             images {
