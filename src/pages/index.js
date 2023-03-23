@@ -10,23 +10,19 @@ import GitHubCalendar from 'react-github-calendar';
 const IndexPage = () => {
   const imgs = useStaticQuery(graphql`
     {
-      allContentfulArtwork(filter: {node_locale: {eq: "es-CO"}}, limit: 14) {
-        edges {
-          node {
-            images {
-              gatsbyImageData(formats: AUTO, placeholder: DOMINANT_COLOR, width:700)
-            }
-            slug
-            title
-            author {
-              foto {
-                gatsbyImageData(formats: AUTO, placeholder: TRACED_SVG, width: 100)
-              }
-            }
-          }
+  allContentfulArtwork(filter: {node_locale: {eq: "es-CO"}}, limit: 14) {
+    edges {
+      node {
+        images {
+          gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 700)
         }
+        slug
+        title
+        
       }
     }
+  }
+}
   `)
 
   const images = []
@@ -35,11 +31,7 @@ const IndexPage = () => {
       const imm2 = {
         id: img.node.slug,
         src: img.node.images[1].gatsbyImageData,
-        user: {
-          src: img.node.author.foto.gatsbyImageData,
-          name: "Simón López",
-          job: ""
-        }
+        title: img.node.images[1].title,
       }
 
       images.push(imm2)
@@ -47,11 +39,7 @@ const IndexPage = () => {
     const imm = {
       id: img.node.slug,
       src: img.node.images[0].gatsbyImageData,
-      user: {
-        src: img.node.author.foto.gatsbyImageData,
-        name: "Simón López",
-        job: ""
-      }
+      title: img.node.images[0].title,
     }
 
     images.push(imm)

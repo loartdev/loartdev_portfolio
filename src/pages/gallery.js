@@ -6,24 +6,24 @@ import Slideshow from "../components/slideshow";
 
 const GalleryPage = () => {
   const artworks = useStaticQuery(graphql`
-  {
-    allContentfulArtwork(filter: {node_locale: {eq: "en-US"}}, limit: 14) {
-        edges {
-          node {
-            images {
-              gatsbyImageData(formats: AUTO, placeholder: DOMINANT_COLOR)
-            }
-            slug
-            title
-            author {
-              foto {
-                gatsbyImageData(formats: AUTO, placeholder: TRACED_SVG, width: 100)
-              }
-            }
+{
+  allContentfulArtwork(filter: {node_locale: {eq: "es-CO"}}, limit: 14) {
+    edges {
+      node {
+        images {
+          gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 700)
+        }
+        slug
+        title
+        author {
+          foto {
+            gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 100)
           }
         }
       }
     }
+  }
+}
   `)
 
   const images = []

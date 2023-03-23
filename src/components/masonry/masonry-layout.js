@@ -23,9 +23,7 @@ const MasonryLayout = ({ images, dontbreak }) => {
         <Fade key={item.id} bottom big>
           <MasonryBox
             wallSrc={item.src}
-            userProf={item.user.src}
-            userName={item.user.name}
-            userJob={item.user.job}
+            alt={item.title}
           />
         </Fade>
       ))}

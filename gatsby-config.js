@@ -13,6 +13,24 @@ module.exports = {
     siteUrl: process.env.WEB_URL,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleAnalytics: {
+          trackingId: 'G-3SK66T1MHQ', // leave empty if you want to disable the tracker
+          cookieName: 'gatsby-gdpr-google-analytics', // default
+          anonymize: true, // default
+          allowAdFeatures: false // default
+        },
+        hotjar: {
+          hjid: '3421202',
+          hjsv: '6',
+          cookieName: 'gatsby-gdpr-hotjar', // default
+        },
+        // defines the environments where the tracking should be available  - default is ["production"]
+        environments: ['production', 'development']
+      },
+    },
     `gatsby-plugin-mdx`,
     `gatsby-plugin-sitemap`,
     {
@@ -37,7 +55,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     'gatsby-plugin-postcss',
     'gatsby-plugin-tailwindcss',
-    {
+    /*{
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
@@ -59,7 +77,7 @@ module.exports = {
           delayOnRouteUpdate: 0,
         },
       },
-    },
+    },*/
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -83,6 +101,13 @@ module.exports = {
         theme_color: `#dbdbdb`,
         display: `standalone`,
       },
+
+    },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en-CA'
+      }
     },
   ],
 };
