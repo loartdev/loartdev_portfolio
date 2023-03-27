@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
-import { Tooltip, UncontrolledTooltip } from "reactstrap";
+import { UncontrolledTooltip } from "reactstrap";
 
 
 const MasonryCard = ({ DATA }) => (
@@ -9,7 +9,7 @@ const MasonryCard = ({ DATA }) => (
     <div className="h-full w-full">
       <div className="relative w-full">
         <GatsbyImage image={getImage(DATA.src)} className="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full" />
-        <a target="_blank"
+        <a target="_blank" rel="noreferrer"
           href={`http://twitter.com/intent/tweet?text=Check%20${DATA.title},%20fantastic%20artwork%20by%20@LoArtDev.%20Please%20go%20and%20check%20it%20out%20&url=https%3A%2F%2Floart.dev/art/${DATA.id}`}>
           <button
             id={DATA.id}

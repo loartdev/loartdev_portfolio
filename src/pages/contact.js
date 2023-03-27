@@ -9,13 +9,13 @@ const ContactPage = () => {
         <h1 className="font-bold text-3xl mb-6">Contact Me</h1>
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-theme-text text-xs font-bold mb-2" for="grid-first-name">
+            <label class="block uppercase tracking-wide text-theme-text text-xs font-bold mb-2" htmlFor="grid-first-name">
               First Name<span className="text-red-500">*</span>
             </label>
             <input class="appearance-none block w-full bg-theme-menubg text-theme-text border border-theme-navbg rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-theme-navbg invalid:border-red-500" id="grid-first-name" type="text" name="name" placeholder="Simon" required minlength="2" maxlength="25" />
           </div>
           <div class="w-full md:w-1/2 px-3">
-            <label class="block uppercase tracking-wide text-theme-text text-xs font-bold mb-2" for="grid-last-name">
+            <label class="block uppercase tracking-wide text-theme-text text-xs font-bold mb-2" htmlFor="grid-last-name">
               Last Name
             </label>
             <input class="appearance-none block w-full bg-theme-menubg text-theme-text border border-theme-navbg rounded py-3 px-4 leading-tight focus:outline-none focus:bg-theme-navbg focus:border-theme-accent  invalid:border-red-500" id="grid-last-name" type="text" name="lastname" placeholder="Lopez" minlength="2" maxlength="30" />
@@ -23,7 +23,7 @@ const ContactPage = () => {
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
-            <label class="block uppercase tracking-wide text-theme-text text-xs font-bold mb-2" for="grid-password">
+            <label class="block uppercase tracking-wide text-theme-text text-xs font-bold mb-2" htmlFor="grid-password">
               E-mail<span className="text-red-500">*</span>
             </label>
             <input class="appearance-none block w-full bg-theme-menubg text-theme-text border border-theme-navbg rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-theme-navbg focus:border-theme-accent invalid:border-red-500" id="email" type="email" name="email" placeholder="mike.alien@loart.dev" required minLength="6" />
@@ -31,7 +31,7 @@ const ContactPage = () => {
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
-            <label class="block uppercase tracking-wide text-theme-text text-xs font-bold mb-2" for="grid-password">
+            <label class="block uppercase tracking-wide text-theme-text text-xs font-bold mb-2" htmlFor="grid-password">
               Message<span className="text-red-500">*</span>
             </label>
             <textarea class=" no-resize appearance-none block w-full bg-theme-menubg text-theme-text border border-theme-navbg rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-theme-navbg focus:border-theme-accent h-48 resize-y required:border-theme-navbg invalid:border-red-500" id="message" name="message" required minLength="25" maxLength="600"></textarea>

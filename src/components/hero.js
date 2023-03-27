@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 
 const Hero = () => {
   const images = useStaticQuery(graphql`
@@ -50,9 +50,10 @@ const Hero = () => {
             <h1 class="text-3xl md:text-7xl text-theme-accent tracking-loose mb-2">LoArt <span className=" text-theme-text">& </span>Dev</h1>
 
             <p class="text-sm md:text-base text-gray-50 mb-4">where I create stunning games and websites that will blow your mind! Are you ready for an adventure?</p>
-            <a href="#"
-              class="bg-transparent hover:bg-theme-accent text-theme-accent hover:text-zinc-800 rounded shadow hover:shadow-lg py-2 px-4 border border-theme-accent hover:border-transparent">
-              Explore Now</a>
+            <Link to="/galler">
+              <button
+                class="bg-transparent hover:bg-theme-accent text-theme-accent hover:text-zinc-800 rounded shadow hover:shadow-lg py-2 px-4 border border-theme-accent hover:border-transparent">
+                Explore Now</button></Link>
 
 
           </div>

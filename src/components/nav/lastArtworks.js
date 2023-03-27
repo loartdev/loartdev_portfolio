@@ -19,7 +19,7 @@ const ArtworksLinks = () => {
       }
     }
   `)
-  console.log(artworks);
+  //console.log(artworks);
   return (
     <>{
       artworks.allContentfulArtwork.edges.map((art, index) => (

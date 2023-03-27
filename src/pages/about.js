@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/layout";
 import { graphql, useStaticQuery } from "gatsby";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 
 const AboutPage = () => {
   const DATA = useStaticQuery(graphql`
@@ -152,5 +152,5 @@ const AboutMeSection = () => (
 ///   Head   ///
 ////////////////
 export const Head = () => (
-  <SEO title="About LoArt & Dev" />
+  <Seo title="About LoArt & Dev" />
 )

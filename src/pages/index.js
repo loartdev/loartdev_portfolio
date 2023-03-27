@@ -2,9 +2,9 @@ import * as React from 'react';
 import Layout from '../components/layout';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import Hero from '../components/hero';
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 import MasonryLayout from '../components/masonry/masonry-layout';
-import ArtCarousel from '../components/artworkCarousel';
+//import ArtCarousel from '../components/artworkCarousel';
 import GitHubCalendar from 'react-github-calendar';
 
 const IndexPage = () => {
@@ -44,7 +44,7 @@ const IndexPage = () => {
 
     images.push(imm)
   })
-  console.log(images);
+  //console.log(images);
   return (
     <Layout title="Home">
       <Hero />
@@ -58,9 +58,9 @@ const IndexPage = () => {
           <center>
             <h2 className='text-4xl text-center mb-8'>ARTWORKS</h2>
 
-            <Link to="/gallery"><a
+            <Link to="/gallery"><button
               className="bg-transparent hover:bg-theme-accent text-theme-accent hover:text-zinc-800 rounded shadow hover:shadow-lg py-2 px-4 border border-theme-accent hover:border-transparent">
-              Explore Now</a></Link>
+              Explore Now</button></Link>
           </center>
         </div>
       </div>
@@ -86,5 +86,5 @@ const IndexPage = () => {
 export default IndexPage
 
 export const Head = () => (
-  <SEO />
+  <Seo />
 )

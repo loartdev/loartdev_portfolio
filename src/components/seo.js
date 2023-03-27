@@ -1,7 +1,7 @@
 import React from "react"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
-export const SEO = ({ title, description, pathname, children }) => {
+export const Seo = ({ title, description, pathname, children }) => {
   const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername, imageSite } = useSiteMetadata()
 
   const seo = {

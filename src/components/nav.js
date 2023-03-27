@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dialog, Menu } from '@headlessui/react'
+// import { Dialog, Menu } from '@headlessui/react'
 import Logo from '../images/logo.svg';
 import { Link } from 'gatsby';
 import ArtworksLinks from './nav/lastArtworks';
@@ -17,18 +17,17 @@ function Nav() {
           </div>
           <h2 className='flex-1 text-2xl text-center mt-2 hidden md:block'>LoArt & Dev</h2>
           <div className="flex-0 z-50 flex place-content-end space-x-4 text-1xl leading-8">
-            <div onClick={() => setIsOpen(!isOpen)} className='flex-0 p-2 hover:text-theme-accent transition duration-100'>
+            <button onClick={() => setIsOpen(!isOpen)} className='flex-0 p-2 hover:text-theme-accent transition duration-100'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
               </svg>
-
-            </div>
+            </button>
           </div>
         </div>
 
       </nav>
       <section>
-        <div className={`fixed top-0 left-0  w-screen h-screen z-[55] ${isOpen ? 'block' : 'hidden'}`} onClick={() => setIsOpen(false)}></div>
+        <button className={`fixed top-0 left-0  w-screen h-screen z-[55] ${isOpen ? 'block' : 'hidden'}`} onClick={() => setIsOpen(false)}><span hidden>close</span></button>
         <div className={`fixed grid grid-cols-2 p-2 md:p-0 top-0 left-0 w-screen md:h-auto md:left-auto h-screen md:rounded-2xl md:right-8 md:top-24 md:ml-8 md:w-1/2 bg-theme-menubg text-theme-text z-[60] shadow-lg shadow-theme-navbg/2 0 transition-transform duration-75 ${isOpen ? 'block' : 'hidden'}`}>
           <div className="text-xl h-10 col-span-2 flex p-2 w-full md:hidden">
             <div className='flex-1'>
@@ -83,7 +82,7 @@ function Nav() {
               </svg>
               Contact me</MenuLink>
             <h2 className='col-span-2 text-zinc-400 text-xs mt-1'>SOCIALES</h2>
-            <a href="https://www.instagram.com/loart_dev/" target='_blank'>
+            <a href="https://www.instagram.com/loart_dev/" target='_blank' rel="noreferrer">
               <div className='flex space-x-4 hover:text-theme-accent'>
                 <svg className="w-6 h-6 mr-2 p-1 rounded-full" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   viewBox="0 0 56.7 56.7" fill="currentColor" enable-background="new 0 0 56.7 56.7" xmlSpace="preserve">
@@ -100,31 +99,31 @@ function Nav() {
                 Instagram
               </div>
             </a>
-            <a href="https://www.facebook.com/loartdev/" target='_blank'>
+            <a href="https://www.facebook.com/loartdev/" target='_blank' rel="noreferrer">
               <div className='flex space-x-4 hover:text-theme-accent'>
                 <svg className="w-6 h-6 mr-2 p-1 rounded-full" role="img" width="30px" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
                 Facebook
               </div>
             </a>
-            <a target="_blank" href="https://twitter.com/LoArtDev">
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/LoArtDev">
               <div className='flex space-x-4 hover:text-theme-accent'>
                 <svg className="w-6 h-6 mr-2 p-1 rounded-full" role="img" width="30px" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>
                 Twitter
               </div>
             </a>
-            <a target="_blank" href="https://www.artstation.com/loartdev">
+            <a target="_blank" rel="noreferrer" href="https://www.artstation.com/loartdev">
               <div className='flex space-x-4 hover:text-theme-accent'>
                 <svg className="w-6 h-6 mr-2 p-1 rounded-full" role="img" width="30px" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>ArtStation</title><path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z"></path></svg>
                 Artstation
               </div>
             </a>
-            <a target="_blank" href="https://loartdev.itch.io/">
+            <a target="_blank" rel="noreferrer" href="https://loartdev.itch.io/">
               <div className='flex space-x-4 hover:text-theme-accent'>
                 <svg className="w-6 h-6 mr-2 p-1 rounded-full" role="img" width="30px" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Itch.io</title><path d="M3.13 1.338C2.08 1.96.02 4.328 0 4.95v1.03c0 1.303 1.22 2.45 2.325 2.45 1.33 0 2.436-1.102 2.436-2.41 0 1.308 1.07 2.41 2.4 2.41 1.328 0 2.362-1.102 2.362-2.41 0 1.308 1.137 2.41 2.466 2.41h.024c1.33 0 2.466-1.102 2.466-2.41 0 1.308 1.034 2.41 2.363 2.41 1.33 0 2.4-1.102 2.4-2.41 0 1.308 1.106 2.41 2.435 2.41C22.78 8.43 24 7.282 24 5.98V4.95c-.02-.62-2.082-2.99-3.13-3.612-3.253-.114-5.508-.134-8.87-.133-3.362 0-7.945.053-8.87.133zm6.376 6.477a2.74 2.74 0 0 1-.468.602c-.5.49-1.19.795-1.947.795a2.786 2.786 0 0 1-1.95-.795c-.182-.178-.32-.37-.446-.59-.127.222-.303.412-.486.59a2.788 2.788 0 0 1-1.95.795c-.092 0-.187-.025-.264-.052-.107 1.113-.152 2.176-.168 2.95v.005l-.006 1.167c.02 2.334-.23 7.564 1.03 8.85 1.952.454 5.545.662 9.15.663 3.605 0 7.198-.21 9.15-.664 1.26-1.284 1.01-6.514 1.03-8.848l-.006-1.167v-.004c-.016-.775-.06-1.838-.168-2.95-.077.026-.172.052-.263.052a2.788 2.788 0 0 1-1.95-.795c-.184-.178-.36-.368-.486-.59-.127.22-.265.412-.447.59a2.786 2.786 0 0 1-1.95.794c-.76 0-1.446-.303-1.948-.793a2.74 2.74 0 0 1-.468-.602 2.738 2.738 0 0 1-.463.602 2.787 2.787 0 0 1-1.95.794h-.16a2.787 2.787 0 0 1-1.95-.793 2.738 2.738 0 0 1-.464-.602zm-2.004 2.59v.002c.795.002 1.5 0 2.373.953.687-.072 1.406-.108 2.125-.107.72 0 1.438.035 2.125.107.873-.953 1.578-.95 2.372-.953.376 0 1.876 0 2.92 2.934l1.123 4.028c.832 2.995-.266 3.068-1.636 3.07-2.03-.075-3.156-1.55-3.156-3.025-1.124.184-2.436.276-3.748.277-1.312 0-2.624-.093-3.748-.277 0 1.475-1.125 2.95-3.156 3.026-1.37-.004-2.468-.077-1.636-3.072l1.122-4.027c1.045-2.934 2.545-2.934 2.92-2.934zM12 12.714c-.002.002-2.14 1.964-2.523 2.662l1.4-.056v1.22c0 .056.56.033 1.123.007.562.026 1.124.05 1.124-.008v-1.22l1.4.055C14.138 14.677 12 12.713 12 12.713z"></path></svg>
                 Itch.io
               </div>
             </a>
-            <a target="_blank" href="https://github.com/SimonLopezJara">
+            <a target="_blank" rel="noreferrer" href="https://github.com/SimonLopezJara">
               <div className='flex space-x-4 hover:text-theme-accent'>
                 <svg className="w-6 h-6 mr-2 p-1 rounded-full" role="img" width="30px" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
                 GitHub
