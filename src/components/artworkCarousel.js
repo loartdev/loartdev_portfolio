@@ -9,23 +9,27 @@ export default function ArtCarousel() {
   // Get the latest Artworks
   const getImages = useStaticQuery(graphql`
     {
-      allContentfulArtwork(filter: {node_locale: {eq: "es-CO"}}, limit: 8) {
+      allStrapiArtwork(filter: {locale: {eq: "en"}}, limit: 8) {
         edges {
           node {
-            images {
-              gatsbyImageData(formats: AUTO, placeholder: DOMINANT_COLOR)
+            Slug
+            image {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR)
+                }
+              }
             }
-            slug
           }
         }
       }
     }
   `)
   const images = []
-  getImages.allContentfulArtwork.edges.forEach(function (image) {
+  getImages.allStrapiArtwork.edges.forEach(function (image) {
     const artwork = {
-      slug: image.node.slug,
-      image: image.node.images[0].gatsbyImageData,
+      slug: image.node.Slug,
+      image: image.node.image[0].localFile.childImageSharp.gatsbyImageData,
     }
     images.push(artwork)
   })
