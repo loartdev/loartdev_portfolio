@@ -8,40 +8,50 @@ import MasonryLayout from '../components/masonry/masonry-layout';
 import GitHubCalendar from 'react-github-calendar';
 
 const IndexPage = () => {
-  const imgs = useStaticQuery(graphql`
-    {
-  allContentfulArtwork(filter: {node_locale: {eq: "es-CO"}}, limit: 14) {
+  const artworks = useStaticQuery(graphql`
+{
+  allStrapiArtwork(filter: {locale: {eq: "en"}}) {
     edges {
       node {
-        images {
-          gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 700)
+        Slug
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 520, quality: 100)
+            }
+          }
         }
-        slug
         title
-        
       }
     }
   }
 }
   `)
-
+  console.log(artworks);
   const images = []
-  imgs.allContentfulArtwork.edges.forEach(function (img) {
-    if (img.node.images[1] != null) {
+  artworks.allStrapiArtwork.edges.forEach(function (img) {
+    if (img.node.image[1] != null) {
       const imm2 = {
-        id: img.node.slug,
-        src: img.node.images[1].gatsbyImageData,
-        title: img.node.images[1].title,
+        id: img.node.Slug,
+        title: img.node.title,
+        src: img.node.image[1].localFile.childImageSharp.gatsbyImageData,
+      }
+
+      images.push(imm2)
+    } if (img.node.image[2] != null) {
+      const imm2 = {
+        id: img.node.Slug,
+        title: img.node.title,
+        src: img.node.image[1].localFile.childImageSharp.gatsbyImageData,
       }
 
       images.push(imm2)
     }
     const imm = {
-      id: img.node.slug,
-      src: img.node.images[0].gatsbyImageData,
-      title: img.node.images[0].title,
+      id: img.node.Slug,
+      title: img.node.title,
+      src: img.node.image[0].localFile.childImageSharp.gatsbyImageData,
     }
-
     images.push(imm)
   })
   //console.log(images);
@@ -50,7 +60,7 @@ const IndexPage = () => {
       <Hero />
 
       <div className="w-full relative p-10 max-h-[500px] overflow-hidden b-shadow">
-        <div className=' w-[400vw] -rotate-[25deg] -translate-y-[30%] md:-translate-y-10 lg:-translate-y-40 -translate-x-[35%] md:translate-x-0 scale-[.6] md:scale-[1.4] lg:scale-[1.2] md:w-full'>
+        <div className=' w-[400vw] -rotate-[25deg] -translate-y-[30%] md:translate-y-10 lg:-translate-y-40 -translate-x-[35%] md:translate-x-0 scale-[.6] md:scale-[1.4] lg:scale-[1.2] md:w-full'>
           <MasonryLayout dontbreak images={images} />
         </div>
         <div className='absolute w-full h-full top-0 left-0 bg-gradient-to-b from-theme-bg via-transparent to-theme-bg' />

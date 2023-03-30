@@ -6,10 +6,14 @@ import { Seo } from "../components/seo";
 const AboutPage = () => {
   const DATA = useStaticQuery(graphql`
   {
-    contentfulAuthor(name: {eq: "Simón López Jaramillo"}) {
-      foto {
-        resize(width: 900) {
-          src
+    strapiAuthor {
+      ProfilePiture {
+        localFile {
+          childImageSharp {
+            resize(width: 900) {
+              src
+            }
+          }
         }
       }
     }
@@ -17,7 +21,7 @@ const AboutPage = () => {
   `)
   return (
     <Layout>
-      <HeroSection image={DATA.contentfulAuthor.foto.resize.src}></HeroSection>
+      <HeroSection image={DATA.strapiAuthor.ProfilePiture.localFile.childImageSharp.resize.src}></HeroSection>
       <AboutMeSection />
       <section className="p-12 lg:p-24 grid grid-cols-2">
 
