@@ -1,40 +1,51 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
-import MasonryLayout, { ArtMasonryLayout } from "../components/masonry/masonry-layout"
+import { ArtMasonryLayout } from "../components/masonry/masonry-layout"
 import Slideshow from "../components/slideshow";
 
 const GalleryPage = () => {
   const artworks = useStaticQuery(graphql`
 {
-  allContentfulArtwork(filter: {node_locale: {eq: "es-CO"}}, limit: 14) {
+  allStrapiArtwork(filter: {locale: {eq: "en"}}) {
     edges {
       node {
-        images {
-          gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 700)
-        }
-        slug
-        title
+        Slug
         author {
-          foto {
-            gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 100)
+          Name
+          ProfilePiture {
+            localFile {
+              absolutePath
+              childImageSharp {
+                gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 50, quality: 80)
+              }
+            }
           }
         }
+        image {
+          localFile {
+            absolutePath
+            childImageSharp {
+              gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 350, quality: 100)
+            }
+          }
+        }
+        title
       }
     }
   }
 }
   `)
-
+  console.log(artworks);
   const images = []
-  artworks.allContentfulArtwork.edges.forEach(function (img) {
+  artworks.allStrapiArtwork.edges.forEach(function (img) {
     const imm = {
-      id: img.node.slug,
+      id: img.node.Slug,
       title: img.node.title,
-      src: img.node.images[0].gatsbyImageData,
+      src: img.node.image[0].localFile.childImageSharp.gatsbyImageData,
       user: {
-        src: img.node.author.foto.gatsbyImageData,
-        name: "Simon Lopez",
+        src: img.node.author.ProfilePiture.localFile.childImageSharp.gatsbyImageData,
+        name: img.node.author.Name,
         job: ""
       }
     }
@@ -42,10 +53,7 @@ const GalleryPage = () => {
   })
   return (
     <Layout>
-      <div className="m-">
-        <Slideshow images={images} />
-      </div>
-      <div className="m-8">
+      <div className="m-8 mt-24 min-h-screen h-auto">
         <ArtMasonryLayout images={images} />
       </div>
     </Layout>

@@ -48,9 +48,7 @@ export const ArtMasonryLayout = ({ images, dontbreak }) => {
       columnClassName="my-masonry-grid_column"
     >
       {images.map(item => (
-        <Fade key={item.id} bottom big>
-          <MasonryCard DATA={item} />
-        </Fade>
+        <MasonryCard DATA={item} />
       ))}
     </Masonry>
   )

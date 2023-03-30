@@ -3,6 +3,22 @@
  */
 require('dotenv').config()
 
+const strapiConfig = {
+  apiURL: process.env.STRAPI_API_URL,
+  accessToken: process.env.STRAPI_TOKEN,
+  collectionTypes: ["artwork", "game", "legal", "project", "author"],
+  singleTypes: [],
+  remoteFileHeaders: {
+    /**
+     * Customized request headers
+     * For http request with a image or other files need authorization
+     * For expamle: Fetch a CDN file which has a security config when gatsby building needs
+     */
+    Referer: "https://loart.dev/",
+    // Authorization: "Bearer eyJhabcdefg_replace_it_with_your_own_token",
+  },
+};
+
 module.exports = {
   siteMetadata: {
     title: `LoArt & Dev`,
@@ -13,6 +29,10 @@ module.exports = {
     siteUrl: process.env.WEB_URL,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-strapi`,
+      options: strapiConfig,
+    },
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
@@ -43,6 +63,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sitemap",
     },
+    /*
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -50,6 +71,7 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    */
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
