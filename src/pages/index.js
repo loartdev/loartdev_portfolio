@@ -69,7 +69,7 @@ const IndexPage = () => {
             <h2 className='text-4xl text-center mb-8'>ARTWORKS</h2>
 
             <Link to="/gallery"><button
-              className="bg-transparent hover:bg-theme-accent text-theme-accent hover:text-zinc-800 rounded shadow hover:shadow-lg py-2 px-4 border border-theme-accent hover:border-transparent">
+              className="hover:bg-gradient-to-r from-theme-accent to-violet-500  text-white hover:text-zinc-800 rounded shadow hover:shadow-lg py-2 px-4 border border-theme-accent hover:border-transparent">
               Explore Now</button></Link>
           </center>
         </div>

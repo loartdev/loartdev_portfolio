@@ -5,7 +5,7 @@ import { UncontrolledTooltip } from "reactstrap";
 
 
 const MasonryCard = ({ DATA }) => (
-  <div className="!z-5 relative mb-8 rounded-[20px] bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-theme-navbg">
+  <article className="!z-5 relative mb-8 rounded-[20px] bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-theme-navbg">
     <div className="h-full w-full">
       <div className="relative w-full">
         <GatsbyImage image={getImage(DATA.src)} className="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full" />
@@ -42,7 +42,26 @@ const MasonryCard = ({ DATA }) => (
         </div>
       </div>
     </div>
-  </div>
+  </article>
 )
 
 export default MasonryCard
+
+export const MasonryGameCard = ({ DATA }) => (
+  <article className="!z-5 relative mb-8 rounded-[20px] bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-theme-navbg">
+    <div className="h-full w-full">
+      <div className="relative w-full">
+        <GatsbyImage image={getImage(DATA.src)} className="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full" />
+
+      </div>
+      <div className="mb-3 flex items-center justify-between px-1 md:items-start">
+        <div className="mb-2">
+          <Link to={'/game/' + DATA.id}>
+            <p className="text-lg font-bold text-navy-700 hover:text-theme-accent transition-all duration-100"> {DATA.title} </p>
+          </Link>
+          <p className="mt-1 text-sm font-medium text-gray-600 md:mt-2">{DATA.desc}</p>
+        </div>
+      </div>
+    </div>
+  </article>
+)

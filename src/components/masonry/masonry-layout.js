@@ -2,7 +2,7 @@ import React from "react";
 import Fade from 'react-reveal/Fade';
 import Masonry from "react-masonry-css"
 import MasonryBox from './MasonryBox/MasonryBox';
-import MasonryCard from "./masonryCards";
+import MasonryCard, { MasonryGameCard } from "./masonryCards";
 
 // MasonryLayout Component
 const MasonryLayout = ({ images, dontbreak }) => {
@@ -49,6 +49,27 @@ export const ArtMasonryLayout = ({ images, dontbreak }) => {
     >
       {images.map(item => (
         <MasonryCard DATA={item} />
+      ))}
+    </Masonry>
+  )
+}
+
+export const GameMasonryLayout = ({ images, dontbreak }) => {
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1
+  };
+
+  return (
+    <Masonry
+      breakpointCols={dontbreak ? { default: 4 } : breakpointColumnsObj}
+      className="my-masonry-grid"
+      columnClassName="my-masonry-grid_column"
+    >
+      {images.map(item => (
+        <MasonryGameCard DATA={item} />
       ))}
     </Masonry>
   )

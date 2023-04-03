@@ -23,7 +23,7 @@ const ArtworksLinks = () => {
   return (
     <>{
       artworks.allStrapiArtwork.edges.map((art, index) => (
-        <Link key={"a012-" + index} to={art.node.Slug == null ? '' : art.node.Slug}>
+        <Link key={"a012-" + index} to={"/art/" + art.node.Slug}>
           <div className='flex space-x-4 hover:text-theme-accent'>
             {art.node.title}
           </div>
