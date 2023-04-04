@@ -253,3 +253,13 @@ body {
 .my-masonry-grid_column {
   padding-left: 30px;
 }
+
+/***************************************/
+
+.modelView {
+
+  margin: 20px auto;
+  border-radius: 20px;
+  width: 70vw;
+  height: 70vh;
+}

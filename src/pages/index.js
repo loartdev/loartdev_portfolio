@@ -17,7 +17,7 @@ const IndexPage = () => {
         image {
           localFile {
             childImageSharp {
-              gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 520, quality: 100)
+              gatsbyImageData(formats: [AUTO, WEBP, AVIF], placeholder: DOMINANT_COLOR, width: 520, quality: 100)
             }
           }
         }
@@ -27,7 +27,7 @@ const IndexPage = () => {
   }
 }
   `)
-  console.log(artworks);
+  //console.log(artworks);
   const images = []
   artworks.allStrapiArtwork.edges.forEach(function (img) {
     if (img.node.image[1] != null) {

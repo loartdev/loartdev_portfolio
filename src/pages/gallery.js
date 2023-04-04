@@ -17,7 +17,7 @@ const GalleryPage = () => {
             localFile {
               absolutePath
               childImageSharp {
-                gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 50, quality: 80)
+                gatsbyImageData(formats: [AUTO, WEBP, AVIF], placeholder: DOMINANT_COLOR, width: 50, quality: 80)
               }
             }
           }
@@ -26,7 +26,7 @@ const GalleryPage = () => {
           localFile {
             absolutePath
             childImageSharp {
-              gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 350, quality: 100)
+              gatsbyImageData(formats: [AUTO, WEBP, AVIF], placeholder: DOMINANT_COLOR, width: 350, quality: 100)
             }
           }
         }
@@ -36,7 +36,7 @@ const GalleryPage = () => {
   }
 }
   `)
-  console.log(artworks);
+  //console.log(artworks);
   const images = []
   artworks.allStrapiArtwork.edges.forEach(function (img) {
     const imm = {

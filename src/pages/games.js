@@ -14,7 +14,7 @@ const GamesPage = () => {
         Screenshots {
           localFile {
             childImageSharp {
-              gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 350, quality: 70)
+              gatsbyImageData(formats: [AUTO, WEBP, AVIF], placeholder: DOMINANT_COLOR, width: 350, quality: 70)
             }
           }
         }
@@ -23,7 +23,7 @@ const GamesPage = () => {
           ProfilePiture {
             localFile {
               childImageSharp {
-                gatsbyImageData(formats: [AUTO, WEBP], placeholder: DOMINANT_COLOR, width: 50, quality: 70)
+                gatsbyImageData(formats: [AUTO, WEBP, AVIF], placeholder: DOMINANT_COLOR, width: 50, quality: 70)
               }
             }
           }
@@ -34,7 +34,7 @@ const GamesPage = () => {
   }
 }
   `)
-  console.log(artworks);
+  //console.log(artworks);
   const images = []
   artworks.allStrapiGame.edges.forEach(function (img) {
     const imm = {

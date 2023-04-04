@@ -11,8 +11,25 @@ export default function GamePage({ data }) {
     <>
       <Layout>
         <SinglePageHero slug={data.strapiArtwork.Slug} title={data.strapiArtwork.title} desc={data.strapiArtwork.Description.data.Description} />
-        <div className="mx-12">
-          <Gallery images={images} />
+
+
+        <div className=" w-[95vw] max-w-[1000px] md:w-3/4 lg:w-2/3 mx-auto mb-12">
+          <Gallery rowMargin={0} images={images} />
+          {data.strapiArtwork.ModelView.map(model => (
+            <>
+              <iframe className="w-full h-96 mt-12 rounded-xl" title={model.Title}
+                frameborder="0" allowfullscreen mozallowfullscreen="true"
+                webkitallowfullscreen="true" allow="autoplay; fullscreen"
+                xr-spatial-tracking execution-while-out-of-viewport
+                execution-while-not-rendered web-share
+                src={model.ModelUrl} />
+              <a href={model.UrlToModel} className="text-theme-accent font-bold" target="_blank" rel="nofollow"> {model.Title} </a> by
+              <a href={model.UrlToModel} className="text-theme-accent font-bold" target="_blank" rel="nofollow"> LoArt & Dev </a> on
+              <a href={model.UrlToModel} className="text-theme-accent font-bold" target="_blank" rel="nofollow">Sketchfab</a>
+            </>
+          ))
+          }
+
         </div>
       </Layout>
     </>
@@ -33,6 +50,11 @@ export const query = graphql`
   query($slug: String) {
   strapiArtwork(Slug: {eq: $slug}) {
     Slug
+    ModelView {
+      ModelUrl
+      Title
+      UrlToModel
+    }
     author {
       Name
       ProfilePiture {
@@ -52,14 +74,15 @@ export const query = graphql`
       localFile {
         childImageSharp {
           thumb: gatsbyImageData(
-            width: 270
-            height: 270
-            formats: [AUTO, WEBP]
+            height: 300
+            width: 300
+            formats: [AUTO, WEBP, AVIF]
             placeholder: DOMINANT_COLOR
+            transformOptions: {cropFocus: CENTER}
           )
           full: gatsbyImageData(
             layout: FULL_WIDTH
-            formats: [AUTO, WEBP]
+            formats: [AUTO, WEBP, AVIF]
             placeholder: DOMINANT_COLOR 
           )
         }
